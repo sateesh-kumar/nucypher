@@ -1,0 +1,28 @@
+# get the image file name
+Puts "Enter the image file name "
+filename = gets
+
+if ( File.exist?(filename)  &&  Digest::MD5.file(filename) && File.basename(filename, ".jpg") )
+
+# we need a mono image
+filename = filename.colourspace "b-w"
+
+# reduce to 8x8 box
+filename = filename.shrink(a.width / 8, a.height / 8)
+
+# Export the pixels to str
+filenamestr = filename.export_pixels_to_str 
+
+#
+# reduce to 8x8 with a box filter
+#puts "difference: %.5f%%" % (100.0 * (lenna50 - lenna100))
+
+#pixels = []
+#img.each_pixel do |pixel, c, r|
+#    pixels.push(pixel)
+#end
+# pixels now contains each individual pixel of img
+
+#For large images, this method will probably be annoyingly slow. 
+#A quicker method would be to use 
+#img.export_pixels_to_str and then extract individual pixels from the resulting string

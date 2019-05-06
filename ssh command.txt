@@ -1,0 +1,1 @@
+ssh -i "sateesh.pem" ec2-user@ec2-34-221-65-48.us-west-2.compute.amazonaws.com
